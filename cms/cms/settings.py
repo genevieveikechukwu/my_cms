@@ -1,3 +1,5 @@
+# The above code is telling djoser to use the UserCreateSerializer and UserSerializer for the
+# user_create and current_user endpoints respectively.
 from datetime import timedelta
 import os
 from pathlib import Path
@@ -11,7 +13,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config("secret_key", default='django-insecure-x5&dw$_5l^7$u!v^dp3a2gy%cx2$2e&)#ej=rwob+)5jjze@@v')
+SECRET_KEY = config(
+    "secret_key", default='django-insecure-x5&dw$_5l^7$u!v^dp3a2gy%cx2$2e&)#ej=rwob+)5jjze@@v')
 #print(SECRET_KEY, "\n")
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -30,18 +33,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
     # third party applications
     "rest_framework",
     # "corsheaders",
-    "djoser", 
+    "djoser",
     "ckeditor",
     'django_extensions',
-    
+
     # internal applications
     # 'cms_root_app',
     "core",
     "blog",
+
 ]
 
 MIDDLEWARE = [
@@ -55,7 +59,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-# CORS_ALLOWED_ORIGINS = ["*"] # this allow for all endpoint can call but we will change at production 
+# CORS_ALLOWED_ORIGINS = ["*"] # this allow for all endpoint can call but we will change at production
 
 ROOT_URLCONF = 'cms.urls'
 
@@ -88,6 +92,20 @@ DATABASES = {
     }
 }
 
+# PostGreSql Database setup
+# Follow this steps to setup PostGreSql on your Machine:
+# https://stackpython.medium.com/how-to-start-django-project-with-a-database-postgresql-aaa1d74659d8
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'cms_20',
+        'USER': 'postgres',
+        'PASSWORD': 'm1300028',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',  # set port to port your PGAdmin Port is running
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
