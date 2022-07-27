@@ -95,6 +95,8 @@ DATABASES = {
 # PostGreSql Database setup
 # Follow this steps to setup PostGreSql on your Machine:
 # https://stackpython.medium.com/how-to-start-django-project-with-a-database-postgresql-aaa1d74659d8
+# using pyhton decouple to hide Db
+# https://simpleisbetterthancomplex.com/2015/11/26/package-of-the-week-python-decouple.html
 
 DATABASES = {
     'default': {
